@@ -7,7 +7,6 @@ var express        = require('express');
 var less           = require('express-less');
 var session        = require('express-session');
 var morgan         = require('morgan');
-var favicon        = require('serve-favicon');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var cookieParser   = require('cookie-parser');
