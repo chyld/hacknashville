@@ -3,3 +3,8 @@ extends ../shared/template
 block content
   h1= title
 
+  form#authentication
+    input#email(type='text', name='email')
+    input#password(type='password', name='password')
+    button#register Register
+    button#login Login

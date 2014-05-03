@@ -13,6 +13,7 @@ var cookieParser   = require('cookie-parser');
 var session        = require('cookie-session');
 var initMongo      = require('./lib/init-mongo');
 var initRoutes     = require('./lib/init-routes');
+var findUser       = require('./lib/find-user');
 
 var app = express();
 app.set('views', __dirname + '/views');
@@ -28,6 +29,7 @@ app.use(bodyParser());
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(session({keys:['key1', 'key2']}));
+app.use(findUser);
 /* --- pipeline ends   */
 
 var server = require('http').createServer(app);
