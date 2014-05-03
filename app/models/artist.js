@@ -58,9 +58,11 @@ Artist.findById = function(id, fn){
 };
 
 Artist.facebook = function(data, fn){
+  var email = data.email || 'Email Not Provided';
+
   artists.findOne({id:data.id}, function(err, record){
     if(!record){
-      artists.insert({id:data.id, email:data.email}, function(err, records){
+      artists.insert({id:data.id, email:email}, function(err, records){
         fn(records[0]);
       });
     }else{
