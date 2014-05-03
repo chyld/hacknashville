@@ -20,6 +20,10 @@ function load(app, fn){
   app.post('/register', d, artists.register);
   app.post('/login', d, artists.login);
   app.post('/facebook', d, artists.facebook);
+  app.get('/profile', d, artists.profile);
+  app.get('/artists/:id', d, artists.show);
+  app.get('/profile/edit', d, artists.edit);
+  app.post('/profile/edit', d, artists.submit);
   console.log('Routes Loaded');
   fn();
 }

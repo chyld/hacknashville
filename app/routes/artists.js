@@ -29,3 +29,21 @@ exports.facebook = function(req, res){
     res.send({});
   });
 };
+
+exports.show = function(req, res){
+  Artist.findById(req.params.id.toString(),function(artist){
+    if(req.session.artistId === req.params.id){
+      res.render('artists/show', {artist:artist, owner:true});
+    }else{
+      res.render('artists/show', {artist:artist, owner:false});
+    }
+  });
+};
+
+exports.profile = function(req, res){
+  res.render('artists/profile');
+};
+
+exports.edit = function(req, res){
+  res.render('artists/edit');
+};
