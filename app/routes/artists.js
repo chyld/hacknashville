@@ -35,6 +35,6 @@ exports.logout = function(req, res){
 exports.facebook = function(req, res){
   Artist.facebook(req.body, function(artist){
     req.session.artistId = artist._id;
-    res.send({status:1});
+    res.send(artist);
   });
 };

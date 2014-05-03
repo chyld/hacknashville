@@ -9,7 +9,7 @@ html(lang='en')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/source/fblogin.js')
   body
-    h1= artist ? artist.email : ''
+    h1#artist-email= artist ? artist.email : ''
 
     fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
     button#fblogout Logout of Facebook
