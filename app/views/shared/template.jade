@@ -10,7 +10,17 @@ html(lang='en')
     script(src='/js/source/fblogin.js')
   body
     h1= artist ? artist.email : ''
+
     fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
+    button#fblogout Logout of Facebook
+
+    form#authentication
+      input#email(type='text', name='email')
+      input#password(type='password', name='password')
+      button#register Register
+      button#login Login
+      button#logout Logout
+
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')

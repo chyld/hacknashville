@@ -50,6 +50,7 @@
     FB.api('/me', function(response) {
       $.ajax({url:'/facebook', type:'POST', data:response, success:function(d){
         // take response and redraw UI
+        console.log(d);
       }});
     });
   }
