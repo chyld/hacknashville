@@ -70,3 +70,5 @@ Artist.facebook = function(data, fn){
     }
   });
 };
+
+

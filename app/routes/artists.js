@@ -56,3 +56,23 @@ exports.profile = function(req, res){
 exports.edit = function(req, res){
   res.render('artists/edit');
 };
+
+exports.submit = function(req, res){
+  res.send({artist:req.body});
+};
+
+/*
+User.prototype.addPhoto = function(oldpath){
+  var dirname = this.email.replace(/\W/g,'').toLowerCase();
+  var abspath = __dirname + '/../static';
+  var relpath = '/img/artists/' + dirname;
+  fs.mkdirSync(abspath + relpath);
+
+  var extension = path.extname(oldpath);
+  relpath += '/photo' + extension;
+  fs.renameSync(oldpath, abspath + relpath);
+
+  this.userPhoto = relpath;
+};
+*/
+
