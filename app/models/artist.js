@@ -56,3 +56,15 @@ Artist.findById = function(id, fn){
     fn(record);
   });
 };
+
+Artist.facebook = function(data, fn){
+  artists.findOne({id:data.id}, function(err, record){
+    if(!record){
+      artists.insert({id:data.id, email:data.email}, function(err, records){
+        fn(records[0]);
+      });
+    }else{
+      fn(record);
+    }
+  });
+};

@@ -19,6 +19,7 @@ function load(app, fn){
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
   app.post('/login', d, artists.login);
+  app.post('/facebook', d, artists.facebook);
   console.log('Routes Loaded');
   fn();
 }
