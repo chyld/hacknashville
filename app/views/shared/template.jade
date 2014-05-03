@@ -7,6 +7,8 @@ html(lang='en')
     title= title
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/less/app.css')
+    script(src='/js/source/fblogin.js')
+
   body
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
@@ -14,20 +16,30 @@ html(lang='en')
           a.navbar-brand Timbre
         ul.nav.navbar-nav
           li
-            a Link1
+            a Search
           li
-            a Link2
-        ul.nav.navbar-nav.navbar-right
+            a Profile
+        ul#navbar-right.nav.navbar-nav.navbar-right
           li
-            input#username(placeholder='Username')
+            a.navbar-brand#artist-email= artist ? artist.email : ''
           li
-            input#pw(placeholder='Password' type='password')
+            fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
           li
-            button#sign-in.btn.btn-success Sign In
+            button.btn.btn-success#fblogout Logout of Facebook
+          li
+            form#authentication
+              input#email(type='text', name='email', placeholder='Email')
+              input#password(type='password', name='password', placeholder='Password')
+              button.btn.btn-success#register Register
+              button.btn.btn-success#login Login
+              button.btn.btn-success#logout Logout
+
+
     block content
-    
+
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/js/source/authenticate.js')
     script(src='/js/source/main.js')

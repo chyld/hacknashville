@@ -3,4 +3,23 @@ extends ../shared/template
 block content
   #myCarousel.carousel.slide
     ol.carousel-indicators
-      li(data-target='#myCarousel' data-slide-to='0')
+      li.active(data-target='#myCarousel' data-slide-to='0')
+      li(data-target='#myCarousel' data-slide-to='1')
+      li(data-target='#myCarousel' data-slide-to='2')
+    .carousel-inner
+      .item.active
+        #guitar
+        .carousel-caption
+          h3 Create Your Artist Profile
+      .item
+        #stage
+        .carousel-caption
+          h3 Create or Manage Your Band
+      .item
+        #nashville
+        .carousel-caption
+          h3 Connect With Artists and Bands Near You
+    a.carousel-control.left(href='#myCarousel' data-slide='prev')
+      span.icon-prev
+    a.carousel-control.right(href='#myCarousel' data-slide='next')
+      span.icon-next
