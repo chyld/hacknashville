@@ -8,6 +8,22 @@ html(lang='en')
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/less/app.css')
   body
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          a.navbar-brand Music Connection
+        ul.nav.navbar-nav
+          li
+            a Link1
+          li
+            a Link2
+        ul.nav.navbar-nav.navbar-right
+          li
+            input#username(placeholder='Username')
+          li
+            input#pw(placeholder='Password' type='password')
+          li
+            button#sign-in.btn.btn-success Sign In
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
