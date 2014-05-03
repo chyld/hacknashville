@@ -6,7 +6,7 @@ module.exports = function(grunt){
     // ---------------------------------------------------------------------- //
     watch: {
       jshint: {
-        files: ['Gruntfile.js', 'app/**/*.js', 'test/**/*.js', '!app/static/js/vendor/**/*.js'],
+        files: ['Gruntfile.js', 'app/**/*.js', '!app/static/js/vendor/**/*.js'],
         tasks: ['jshint:all']
       }
     },
@@ -19,7 +19,6 @@ module.exports = function(grunt){
       all: [
         'Gruntfile.js',
         'app/**/*.js',
-        'test/**/*.js',
         '!app/static/js/vendor/**/*.js'
       ]
     }
@@ -31,4 +30,3 @@ module.exports = function(grunt){
   grunt.registerTask('build', ['jshint:all']);
   grunt.registerTask('default', ['build', 'watch']);
 };
-

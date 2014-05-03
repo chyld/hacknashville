@@ -1,6 +1,4 @@
 {
-  "devel": true,
-  "debug": true,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
@@ -9,15 +7,20 @@
   "latedef": "nofunc",
   "newcap": true,
   "noarg": true,
+  "noempty": true,
+  "nonbsp": true,
   "quotmark": "single",
   "undef": true,
-  "unused": "vars",
+  "unused": true,
   "strict": true,
   "trailing": true,
+
   "node": true,
   "browser": true,
   "jquery": true,
+  "devel": true,
+  "debug": true,
   "validthis": true,
-  "globals": {"_":true, "moment":true, "describe":true, "it":true, "before":true, "after":true, "beforeEach":true, "afterEach":true}
-}
 
+  "globals": {}
+}

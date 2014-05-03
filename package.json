@@ -1,17 +1,13 @@
 {
-  "name": "name-of-application",
+  "name": "hacknashville",
   "repository" : {
     "type" : "git",
-    "url"  : "http://github.com/USERNAME/NAME-OF-REPO.git"
+    "url"  : "http://github.com/chyld/hacknashville.git"
   },
   "version": "0.0.1",
-  "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
   "private": true,
   "scripts": {
-    "start"     : "node app/app.js",
-    "test"      : "mocha --recursive test",
-    "testwatch" : "mocha -w --recursive test",
-    "coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
+    "start"     : "node app/app.js"
   },
   "dependencies": {
     "express":         "*",
@@ -23,25 +19,24 @@
     "jade":            "*",
     "express-less":    "*",
     "request":         "*",
-    "express-session": "*"
+    "body-parser":     "*",
+    "compression":     "*",
+    "cookie-session":  "*",
+    "morgan":          "*",
+    "cookie-parser":   "*",
+    "express-session": "*",
+    "serve-favicon":  "*",
+    "response-time":   "*",
+    "errorhandler":    "*",
+    "method-override": "*",
+    "connect-timeout": "*",
+    "vhost":           "*",
+    "csurf":           "*"
   },
   "devDependencies": {
     "grunt":                "*",
     "grunt-contrib-jshint": "*",
     "jshint-stylish":       "*",
-    "grunt-contrib-watch":  "*",
-    "mocha":                "*",
-    "chai" :                "*",
-    "superagent":           "*",
-    "supertest":            "*",
-    "coveralls":            "*",
-    "mocha-lcov-reporter":  "*",
-    "blanket":              "*"
-  },
-  "config": {
-    "blanket": {
-      "pattern": "/app/"
-    }
+    "grunt-contrib-watch":  "*"
   }
 }
-
