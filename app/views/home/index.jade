@@ -1,5 +1,6 @@
 extends ../shared/template
 
 block content
-  h1= title
-
+  #myCarousel.carousel.slide
+    ol.carousel-indicators
+      li(data-target='#myCarousel' data-slide-to='0')
