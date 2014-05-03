@@ -1,0 +1,23 @@
+extends ../shared/template
+
+block content
+  button#geolocate Find Me
+  h2 OR
+  input#zipcode(type='text')
+  button#geocode ZipCode
+  #range-slider
+  span#range-output
+  span Miles
+
+  form#skills
+    input(type='checkbox', name='guitar')
+    span Guitar
+    input(type='checkbox', name='drums')
+    span Drums
+    input(type='checkbox', name='bass')
+    span Bass
+    input(type='checkbox', name='vocals')
+    span Vocals
+    button#search Search
+
+  #map

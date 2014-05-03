@@ -15,12 +15,15 @@ module.exports = function(req, res, next){
 function load(app, fn){
   var home = require('../routes/home');
   var artists = require('../routes/artists');
+  var search = require('../routes/search');
 
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
   app.post('/login', d, artists.login);
   app.delete('/logout', d, artists.logout);
   app.post('/facebook', d, artists.facebook);
+  app.get('/search', d, search.show);
+  app.get('/query', d, search.query);
   console.log('Routes Loaded');
   fn();
 }

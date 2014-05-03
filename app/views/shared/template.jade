@@ -6,6 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/jquery.nouislider.css')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/source/fblogin.js')
   body
@@ -13,6 +14,7 @@ html(lang='en')
 
     fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
     button#fblogout Logout of Facebook
+    a(href='/search') Search
 
     form#authentication
       input#email(type='text', name='email')
@@ -26,6 +28,9 @@ html(lang='en')
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
+    script(src='/js/vendor/jquery.nouislider.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD4sNttD_i7PtUfNbANpfyCNt2FRMWzkHY&sensor=true')
+    script(src='/js/source/maps.js')
     script(src='/js/source/authenticate.js')
     script(src='/js/source/main.js')
