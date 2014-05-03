@@ -7,9 +7,12 @@ html(lang='en')
     title= title
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/less/app.css')
+    script(src='/js/source/fblogin.js')
   body
-    block content
+    script.
+    fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
 
+    block content
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
