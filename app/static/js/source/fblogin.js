@@ -45,6 +45,12 @@ function authenticate() {
   FB.api('/me', function(response) {
     $.ajax({url:'/facebook', type:'POST', data:response, success:function(artist){
       document.getElementById('artist-email').innerHTML = artist.email;
+      $('#logout').toggleClass('hidden');
+      $('#login').toggleClass('hidden');
+      $('#email').toggleClass('hidden');
+      $('#password').toggleClass('hidden');
+      $('#register').toggleClass('hidden');
+      $('.fb-login-button').toggleClass('hidden');
     }});
   });
 }
