@@ -16,6 +16,7 @@ function load(app, fn){
   var home = require('../routes/home');
   var artists = require('../routes/artists');
   var search = require('../routes/search');
+  var message = require('../routes/message');
 
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
@@ -25,6 +26,7 @@ function load(app, fn){
   app.get('/search', d, search.show);
   app.get('/query', d, search.query);
   app.get('/query/card', d, search.card);
+  app.post('/message/text', d, message.text);
   console.log('Routes Loaded');
   fn();
 }

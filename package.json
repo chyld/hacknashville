@@ -32,7 +32,8 @@
     "connect-timeout": "*",
     "vhost":           "*",
     "csurf":           "*",
-    "escape-html":     "*"
+    "escape-html":     "*",
+    "twilio":          "*"
   },
   "devDependencies": {
     "grunt":                "*",
