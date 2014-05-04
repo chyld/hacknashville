@@ -17,14 +17,14 @@
       $('#geocode').click(geocode);
       $('#search').click(search);
       $('#cards').on('click', '.smsText', text);
-      $('#cards').on('click', '.sendEmail', email);
+      $('#cards').on('click', '.soundCloud', cardFlip);
       displayMap(36,-95,3);
       displaySlider();
     }
   }
 
-  function email(){
-    
+  function cardFlip(){
+    $($(this).closest('.card').find('.soundCloud-container')[0]).fadeToggle('slow');
   }
 
   function text(){
