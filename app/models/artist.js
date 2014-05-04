@@ -17,6 +17,7 @@ function Artist(artist){
   this.skills = [];
   this.phone = '';
   this.song = '';
+  this.youtube = '';
 }
 
 Artist.prototype.hashPassword = function(fn){
@@ -74,6 +75,7 @@ Artist.prototype.update = function(data, fn){
   this.address = data.address;
   this.skills = data.skills;
   this.phone = data.phone;
+  this.youtube = data.youtube;
   artists.save(this, function(err, record){
     fn({record:record});
   });
@@ -93,7 +95,7 @@ Artist.facebook = function(data, fn){
   });
 };
 
-Artist.prototype.addPhoto = function(oldpath){
+Artist.prototype.addPhoto = function(oldpath, fn){
   var dirname = this.email.replace(/\W/g,'').toLowerCase();
   var abspath = __dirname + '/../static';
   var relpath = '/img/artists/' + dirname;
@@ -103,10 +105,11 @@ Artist.prototype.addPhoto = function(oldpath){
   this.artistPhoto = relpath;
   artists.save(this, function(err, record){
     console.log('saved!!!!!');
+    fn();
   });
 };
 
-Artist.prototype.addSong = function(oldpath){
+Artist.prototype.addSong = function(oldpath, fn){
   console.log(oldpath);
   var dirname = this.email.replace(/\W/g,'').toLowerCase();
   var abspath = __dirname + '/../static';
@@ -117,6 +120,7 @@ Artist.prototype.addSong = function(oldpath){
   this.artistSong = relpath;
   artists.save(this, function(err, record){
     console.log('saved!!!!!');
+    fn();
   });
 };
 

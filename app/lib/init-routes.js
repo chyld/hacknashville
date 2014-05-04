@@ -33,6 +33,7 @@ function load(app, fn){
   app.get('/query', d, search.query);
   app.get('/query/card', d, search.card);
   app.post('/message/text', d, message.text);
+  app.get('/chat', d, message.chat);
   console.log('Routes Loaded');
   fn();
 }

@@ -1,0 +1,42 @@
+extends ../shared/template
+
+block content
+
+  h1 Edit Band Info
+
+  form(action='/bands/photo', method='POST', enctype='multipart/form-data')
+    input(type='file', name='bandPhoto')
+    button Add Photo
+  form(action='/bands/song', method='POST', enctype='multipart/form-data')
+    input(type='file', name='bandSong')
+    button Submit Song
+
+  form#bandInfo(method='POST', action='/band')
+    legend Band Info
+    .col-sm-4
+      .form-group
+        label Name
+        input.form-control(name='name', type='text', placeholder='Maroon 5')
+      .form-group
+        label Email
+        input.form-control(name='email', type='text', placeholder='band@nomail.com')
+      .form-group
+        label Members
+        input.form-control(name='members', type='text', placeholder='Steven')
+      .form-group
+        label Agent
+        input.form-control(name='agent', type='text', placeholder='Steven')
+    .col-sm-6
+      .form-group
+        label Bio
+        textarea.form-control(name='bio', rows='3', type='text', placeholder='Band Life Story')
+      .form-group
+        label Location
+        input.form-control(name='location', placeholder='Nashville')
+
+block scripts
+    
+
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ7f53mzZHfIF5Guqu3TrbhPNuaxsu6Fc&sensor=true')
+    script(src='/js/source/updateProfile.js')
+

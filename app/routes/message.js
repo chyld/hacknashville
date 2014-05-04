@@ -16,3 +16,7 @@ exports.text = function(req, res){
     res.send({});
   });
 };
+
+exports.chat = function(req, res){
+  res.render('message/chat', {title: 'Chatting'});
+};

@@ -27,6 +27,8 @@ html(lang='en')
           if artist
             li
               a(href='/artists/'+artist._id) Profile
+          li
+            a(href='/chat') Chatting
         ul#navbar-right.nav.navbar-nav.navbar-right
           li
             a.navbar-brand#artist-email= artist ? artist.email : ''
