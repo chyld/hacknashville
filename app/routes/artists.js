@@ -44,7 +44,7 @@ exports.facebook = function(req, res){
 };
 
 exports.show = function(req, res){
-  Artist.findById(req.params.id.toString(),function(artist){
+  Artist.findById(req.params.id,function(artist){
     if(req.session.artistId === req.params.id){
       res.render('artists/show', {artist:artist, owner:true});
     }else{
