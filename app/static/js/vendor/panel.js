@@ -23,6 +23,6 @@ $(document).on('click', '.panel div.clickable', function (e) {
     }
 });
 $(document).ready(function () {
-    $('.panel-heading span.clickable').click();
-    $('.panel div.clickable').click();
+    // $('.panel-heading span.clickable').click();
+    // $('.panel div.clickable').click();
 });

@@ -17,11 +17,118 @@ block content
           button Update Photo
         a(href='/profile/edit') Edit Profile
 
+    #underPhoto.col-md-12
+      .container
+        .row
+          .col-sm-3.col-md-3
+            #accordion.panel-group
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+                      span.glyphicon.glyphicon-folder-close
+                      | Bruce Dickinson
+                #collapseOne.panel-collapse.collapse.in
+                  .panel-body
+                    table.table
+                      tr
+                        td
+                          span.glyphicon.glyphicon-comment.text-success
+                          a(href='http://www.jquery2dotnet.com') Messages
+                          span.badge 42
+                      tr
+                        td
+                          span.glyphicon.glyphicon-play.text-primary
+                          a(href='http://www.jquery2dotnet.com') YouTube
+                      tr
+                        td
+                          span.glyphicon.glyphicon-play.text-success
+                          a(href='http://www.jquery2dotnet.com') SoundCloud
+                      tr
+                        td
+                          span.glyphicon.glyphicon-pencil.text-primary
+                          a(href='http://www.jquery2dotnet.com') Facebook
+                      tr
+                        td
+                          span.glyphicon.glyphicon-file.text-info
+                          a(href='http://www.jquery2dotnet.com') MySpace
+
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
+                      span.glyphicon.glyphicon-th
+                      | Gigs
+                #collapseTwo.panel-collapse.collapse
+                  .panel-body
+                    table.table
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Upcoming
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Manage Meetup Groups
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Recurring Invites
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Income
+                          span.label.label-success $ 320
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
+                      span.glyphicon.glyphicon-user
+                      | Account
+                #collapseThree.panel-collapse.collapse
+                  .panel-body
+                    table.table
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Change Password
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') Notifications
+                          span.label.label-info 5
+                      tr
+                        td
+                          a(href='http://www.jquery2dotnet.com') SMS
+                      tr
+                        td
+                          span.glyphicon.glyphicon-trash.text-danger
+                          a.text-danger(href='http://www.jquery2dotnet.com')
+                            | Delete Account
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
+                      span.glyphicon.glyphicon-file
+                      | Manage Favorites
+                #collapseFour.panel-collapse.collapse
+                  .panel-body
+                    table.table
+                      tr
+                        td
+                          span.glyphicon.glyphicon-usd
+                          a(href='http://www.jquery2dotnet.com') Bands
+                      tr
+                        td
+                          span.glyphicon.glyphicon-user
+                          a(href='http://www.jquery2dotnet.com') People
+                      tr
+                        td
+                          span.glyphicon.glyphicon-tasks
+                          a(href='http://www.jquery2dotnet.com') Venues
+                      tr
+                        td
+                          span.glyphicon.glyphicon-shopping-cart
+                          a(href='http://www.jquery2dotnet.com') Other Stuff
 
 
-  .container.col-md-9
+  .container.col-md-6
     .row
-      .col-md-6
+      .col-md-12
         .panel.panel-primary
           .panel-heading.clickable
             h3.panel-title
@@ -33,21 +140,23 @@ block content
             br
             | Email:
             br
+            | Phone Number:
+            br
             | Location:
 
             a(href='http://www.jquery2dotnet.com/2014/01/static-social-button-with-animation.html')
-      .col-md-6
+      .col-md-12
         .panel.panel-success
           .panel-heading.clickable
             h3.panel-title
-              | Another Category
+              | Bands
             span.pull-right
               i.glyphicon.glyphicon-minus
           .panel-body
-            | some more stuff
+            | Bands I'm a part of
             a(href='http://www.jquery2dotnet.com/2013/11/cool-big-social-counter-button-with.html')
     .row
-      .col-md-6
+      .col-md-12
         .panel.panel-warning
           .panel-heading.clickable
             h3.panel-title
@@ -57,13 +166,17 @@ block content
           .panel-body
             | Piano, Guitar, Rusty Trombone
             a(href='http://www.jquery2dotnet.com/2013/11/vote-up-and-down-script-using-bootstrap.html')
-      .col-md-6
+      .col-md-12
         .panel.panel-info
           .panel-heading.clickable
             h3.panel-title
               | Bio
+
             span.pull-right
               i.glyphicon.glyphicon-minus
           .panel-body
             | Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal. Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we can not dedicate -- we can not consecrate -- we can not hallow -- this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.
             a(href='http://www.jquery2dotnet.com/2013/11/image-preview-on-hover-bootstrap.html')
+  .col-md-3#lastThird
+    iframe(width='100%', height='450', scrolling='no', frameborder='no', src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/18228&auto_play=false&hide_related=false&visual=true')
+    iframe(width='300', height='90', src='//media.myspace.com/play/song/in-the-air-91601308-100167212', frameborder='0', allowtransparency='true', webkitallowfullscreen='webkitallowfullscreen', mozallowfullscreen='mozallowfullscreen', allowfullscreen='allowfullscreen')
