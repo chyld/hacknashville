@@ -15,7 +15,8 @@
                   span.tags= skill
           .col-xs-12.col-sm-4.text-center
             figure
-              img.img-circle.img-responsive(src='http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png', alt='')
+              if artist.artistPhoto
+                img.img-circle.img-responsive(src=artist.artistPhoto, alt='')
               figcaption.ratings
                 p
                   | Ratings
