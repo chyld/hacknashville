@@ -1,6 +1,6 @@
 .card
   .row
-    .col-md-offset-2.col-md-8.col-lg-offset-3.col-lg-6
+    .col-md-12
       .well.profile
         .col-sm-12
           .col-xs-12.col-sm-8
@@ -49,7 +49,8 @@
           .col-xs-12.col-sm-4.emphasis
             h2
               strong Links
-            button.btn.button-highlight.soundCloud(style='margin:5px') soundCloud
+            if soundCloud
+              button.btn.button-highlight.soundCloud(style='margin:5px') soundCloud
             a.btn.button-primary.cardProfile(style='margin:5px', href='/artists/' + _id)
               span.glyphicon.glyphicon-user(style='margin-right:5px')
               span Profile
