@@ -155,6 +155,7 @@ block content
               | Skills
             span.pull-right
               i.glyphicon.glyphicon-minus
+        if artist.skills
           each skill in artist.skills
             | #{skill},
           .panel-body
