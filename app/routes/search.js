@@ -1,6 +1,5 @@
 'use strict';
 
-//var escape = require('escape-html');
 var Query = require('../models/query');
 
 exports.show = function(req, res){
@@ -9,13 +8,14 @@ exports.show = function(req, res){
 
 exports.query = function(req, res){
   Query.execute(req.query, function(results){
-    console.log(results);
-    res.send({});
+    res.send({artists:results});
   });
 };
 
-// exports.query = function(req, res){
-//   res.render('search/show', {title: 'Search'}, function(err, html){
-//     res.send(escape(html));
-//   });
-// };
+exports.card = function(req, res){
+  Query.card(req.query, function(result){
+    res.render('search/card', result, function(err, html){
+      res.send(html);
+    });
+  });
+};

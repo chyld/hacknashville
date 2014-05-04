@@ -24,6 +24,7 @@ function load(app, fn){
   app.post('/facebook', d, artists.facebook);
   app.get('/search', d, search.show);
   app.get('/query', d, search.query);
+  app.get('/query/card', d, search.card);
   console.log('Routes Loaded');
   fn();
 }

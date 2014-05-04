@@ -7,6 +7,7 @@
 
   var map;
   var loc = {};
+  var markers = [];
 
   function init(){
     var isMap = $('#map').length;
@@ -29,8 +30,16 @@
       skills.push(cb.name);
     });
 
-    $.ajax({url:'/query', type:'GET', data:data, dataType:'html', success:function(d){
-      console.log(d);
+    $.ajax({url:'/query', type:'GET', data:data, success:function(d){
+      markers.forEach(function(marker){
+        marker.setMap(null);
+      });
+
+      markers = [];
+
+      d.artists.forEach(function(artist){
+        addMarker(artist.coordinates[0], artist.coordinates[1], artist.email);
+      });
     }});
 
     e.preventDefault();
@@ -68,6 +77,21 @@
         centerMap(lat, lng);
       }
     });
+  }
+
+  function addMarker(lat, lng, name){
+    var latLng = new google.maps.LatLng(lat, lng);
+    var marker = new google.maps.Marker({map: map, position: latLng, title: name, animation: google.maps.Animation.DROP});
+    markers.push(marker);
+    google.maps.event.addListener(marker, 'click', getCard);
+  }
+
+  function getCard(){
+    var email = this.title;
+
+    $.ajax({url:'/query/card', type:'GET', data:{email:email}, dataType:'html', success:function(card){
+      $('#cards').prepend(card);
+    }});
   }
 
   function centerMap(lat, lng){
