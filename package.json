@@ -33,7 +33,8 @@
     "vhost":           "*",
     "csurf":           "*",
     "escape-html":     "*",
-    "twilio":          "*"
+    "twilio":          "*",
+    "socket.io":       "*"
   },
   "devDependencies": {
     "grunt":                "*",
