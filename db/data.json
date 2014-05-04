@@ -1,0 +1,10 @@
+{ "email" : "x0", "password" : "abc", "loc" : [ 36.0440896, -86.76873359999999 ], "skills" : ["guitar", "base", "drums", "vocals"] }
+{ "email" : "x1", "password" : "abc", "loc" : [ 36.1440896, -86.76873359999999 ], "skills" : ["guitar", "base"] }
+{ "email" : "x2", "password" : "abc", "loc" : [ 36.2440896, -86.76873359999999 ], "skills" : ["drums", "vocals"] }
+{ "email" : "x3", "password" : "abc", "loc" : [ 36.3440896, -86.76873359999999 ], "skills" : ["guitar", "drums", "vocals"] }
+{ "email" : "x4", "password" : "abc", "loc" : [ 36.4440896, -86.76873359999999 ], "skills" : ["guitar", "vocals"] }
+{ "email" : "x5", "password" : "abc", "loc" : [ 36.5440896, -86.76873359999999 ], "skills" : ["guitar", "drums", "vocals"] }
+{ "email" : "x6", "password" : "abc", "loc" : [ 36.6440896, -86.76873359999999 ], "skills" : ["base", "drums", "vocals"] }
+{ "email" : "x7", "password" : "abc", "loc" : [ 36.7440896, -86.76873359999999 ], "skills" : ["guitar", "base"] }
+{ "email" : "x8", "password" : "abc", "loc" : [ 36.8440896, -86.76873359999999 ], "skills" : ["guitar", "drums", "vocals"] }
+{ "email" : "x9", "password" : "abc", "loc" : [ 36.9440896, -86.76873359999999 ], "skills" : ["drums", "vocals"] }

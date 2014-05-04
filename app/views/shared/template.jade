@@ -6,27 +6,43 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='/less/app.css')
+    link(href='/css/jquery.nouislider.css', rel='stylesheet')
+    link(href='/css/buttons.css', rel='stylesheet')
+    link(href='/less/app.css', rel='stylesheet')
+    script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/source/fblogin.js')
+    link(href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css')
   body
-    h1#artist-email= artist ? artist.email : ''
-
-    fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
-    button#fblogout Logout of Facebook
-
-    form#authentication
-      input#email(type='text', name='email')
-      input#password(type='password', name='password')
-      button#register Register
-      button#login Login
-      button#logout Logout
-
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          a.navbar-brand.timbreFont(href='/') Timbre
+        ul.nav.navbar-nav
+          li
+            a(href='/search') Search
+          li
+            a Profile
+        ul#navbar-right.nav.navbar-nav.navbar-right
+          li
+            a.navbar-brand#artist-email= artist ? artist.email : ''
+          li.fb-login-button
+            fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
+          li
+            form#authentication
+              input#email(type='text', name='email', placeholder='Email')
+              input#password(type='password', name='password', placeholder='Password')
+              button.button.button-action#register Register
+              button.button.button-primary#login Login
+              button.button.button-caution.hidden#logout Logout
     block content
 
-    script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
+    script(src='/js/vendor/jquery.nouislider.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD4sNttD_i7PtUfNbANpfyCNt2FRMWzkHY&sensor=true')
+    script(src='/js/source/maps.js')
+    script(src='/js/vendor/buttons.js')
     script(src='/js/source/authenticate.js')
     script(src='/js/source/main.js')
     block scripts

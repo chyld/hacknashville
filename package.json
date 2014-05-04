@@ -31,7 +31,8 @@
     "method-override": "*",
     "connect-timeout": "*",
     "vhost":           "*",
-    "csurf":           "*"
+    "csurf":           "*",
+    "escape-html":     "*"
   },
   "devDependencies": {
     "grunt":                "*",

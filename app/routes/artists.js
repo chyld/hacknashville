@@ -21,11 +21,12 @@ exports.login = function(req, res){
   Artist.findByEmailAndPassword(req.body.email, req.body.password, function(artist){
     if(artist){
       req.session.artistId = artist._id;
-      req.session.artistPw = artist.password;
       res.send({status:1});
     }else{
       res.send({status:0});
     }
+
+    res.send(artist);
   });
 };
 
