@@ -20,8 +20,9 @@ html(lang='en')
         ul.nav.navbar-nav
           li
             a(href='/search') Search
-          li
-            a Profile
+          if artist
+            li
+              a(href='/artists/'+artist._id) Profile
         ul#navbar-right.nav.navbar-nav.navbar-right
           li
             a.navbar-brand#artist-email= artist ? artist.email : ''

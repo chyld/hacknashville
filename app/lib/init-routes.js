@@ -15,7 +15,6 @@ module.exports = function(req, res, next){
 function load(app, fn){
   var home = require('../routes/home');
   var artists = require('../routes/artists');
-  var search = require('../routes/search');
 
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
@@ -25,9 +24,7 @@ function load(app, fn){
   app.post('/artists/photo', d, artists.addPhoto);
   app.get('/artists/:id', d, artists.show);
   app.get('/profile/edit', d, artists.edit);
-  app.post('/profile/edit', d, artists.submit);
-  app.get('/search', d, search.show);
-  app.get('/query', d, search.query);
+  app.post('/profile', d, artists.update);
   console.log('Routes Loaded');
   fn();
 }

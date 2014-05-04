@@ -1,28 +1,21 @@
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title= title
-    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+extends ../shared/template
+
+block content
     link(rel='stylesheet', href='/less/edit.css')
-  body
-  .row
     h1 Edit your profile
 
-
-    form#artistInfo(role='form', method='POST', action='/profile/edit', enctype='multipart/form-data')
+    form#artistInfo(method='POST', action='/profile', enctype='multipart/form-data')
       legend Artist Info
       .col-sm-4
         .form-group
           label Name
-          input.form-control(name='name', placeholder='Steven')
+          input.form-control(name='name', type='text', placeholder='Steven')
         .form-group
           label Email
-          input.form-control(name='email', placeholder='steven@nomail.com')
+          input.form-control(name='email', type='email', placeholder='steven@nomail.com')
         .form-group
           label Address or Zipcode
-          input.form-control(name='address', placeholder='472 Evergreen Terrace')
+          input.form-control(name='address', type='text', placeholder='472 Evergreen Terrace')
           input(type='hidden', name='lat')
           input(type='hidden', name='lng')
         button#submit Submit
@@ -33,8 +26,9 @@ html(lang='en')
         .form-group
           legend Instruments/Skills
           .col-sm-1
-            &nbsp
+            &nbsp;
           .col-sm-10
+          //
             label.check Drums
             input(type='checkbox', name='drums')
             label.check Guitar
@@ -64,7 +58,6 @@ html(lang='en')
             label.check Agent
             input(type='checkbox', name='agent')
 
-  script(src='/js/vendor/jquery-2.1.1.js')
-  script(src='/bootstrap/js/bootstrap.min.js')
-  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ7f53mzZHfIF5Guqu3TrbhPNuaxsu6Fc&sensor=true')
-  script(src='../js/source/updateProfile.js')
+  block scripts
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ7f53mzZHfIF5Guqu3TrbhPNuaxsu6Fc&sensor=true')
+    script(src='/js/source/updateProfile.js')

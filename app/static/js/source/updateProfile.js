@@ -8,7 +8,7 @@
   $(document).ready(initialize);
 
   function initialize(){
-    $('#submit').click(clickCreate);
+    $('#update').click(clickCreate);
   }
 
   function clickCreate(e){
@@ -23,7 +23,7 @@
       $('input[name="lng"]').val(lng);
       $('#artistInfo').submit();
     });
-    e.preventDefaulti();
+    e.preventDefault();
   }
 
 })();

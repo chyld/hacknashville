@@ -63,10 +63,12 @@ Artist.findById = function(id, fn){
   });
 };
 
-Artist.prototype.update = function(fn){
-  artists.save(this, function(err, record){
+Artist.prototype.update = function(data, fn){
+  /*
+  artists.update(this, function(err, record){
     fn({record:record});
   });
+  */
 };
 
 Artist.facebook = function(data, fn){
