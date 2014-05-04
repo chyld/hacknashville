@@ -2,13 +2,15 @@
 
 var Artist = require('../models/artist');
 var formidable = require('formidable');
-var util = require('util');
-//var Mongo = require('mongodb');
 
 exports.register = function(req, res){
   var artist = new Artist(req.body);
   artist.hashPassword(function(){
     artist.insert(function(){
+      console.log('---artist---');
+      console.log(artist);
+      debugger;
+
       if(artist._id){
         req.session.artistId = artist._id;
         res.send(artist);

@@ -46,11 +46,13 @@ block content
       .col-sm-2.text-center
         h1 Phone Number
         h3= artist.phone
-  if artist.artistSong
     .row
       .col-sm-12.text-center
-        h1 Song Demo
         if artist.youtube
           a(href= artist.youtube) My Youtube Link
-        audio(src= artist.artistSong, controls=true)
+        if artist.soundCloud
+          a(href= artist.soundCloud) My Soundcloud Link
+        if artist.artistSong
+          h1 Song Demo
+          audio(src= artist.artistSong, controls=true)
 

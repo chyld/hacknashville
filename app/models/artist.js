@@ -18,6 +18,7 @@ function Artist(artist){
   this.phone = '';
   this.song = '';
   this.youtube = '';
+  this.soundCloud = '';
 }
 
 Artist.prototype.hashPassword = function(fn){
