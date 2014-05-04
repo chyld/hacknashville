@@ -37,13 +37,18 @@
       }
     }});
 
+    window.location='/';
     e.preventDefault();
   }
 
   function register(e){
     var data = $('#authentication').serialize();
-    $.ajax({url:'/register', type:'POST', data:data, success:function(d){
-      if(d.status){window.location = '/';}
+    $.ajax({url:'/register', type:'POST', data:data, success:function(artist){
+      if(artist !== undefined){
+        console.log(artist);
+        $('#artist-email').text(artist.email);
+        hideLogInElements();
+      }
     }});
 
     e.preventDefault();

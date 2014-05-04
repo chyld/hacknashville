@@ -9,9 +9,7 @@ exports.register = function(req, res){
     artist.insert(function(){
       if(artist._id){
         req.session.artistId = artist._id;
-        res.send({status:1});
-      }else{
-        res.send({status:0});
+        res.send(artist);
       }
     });
   });
