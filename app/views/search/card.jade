@@ -1,5 +1,4 @@
 .card
-  h4.text= phone
   .row
     .col-md-offset-2.col-md-8.col-lg-offset-3.col-lg-6
       .well.profile
@@ -33,46 +32,47 @@
         .col-xs-12.divider.text-center
           .col-xs-12.col-sm-4.emphasis
             h2
-              strong  20,7K
+              strong  SMS Text
             p
-              small Followers
-            button.btn.btn-success.btn-block
-              span.fa.fa-plus-circle
-              | Follow
+              small send your email to:
+                span=email
+            button.btn.btn-success.btn-block.smsText
+              span.glyphicon.glyphicon-comment(style='margin-right:5px')
+              span.smsNumber= phone
           .col-xs-12.col-sm-4.emphasis
             h2
-              strong 245
+              strong Email
             p
               small Following
-            button.btn.btn-info.btn-block
-              span.fa.fa-user
-              | View Profile
-          .col-xs-12.col-sm-4.emphasis(style='padding:5px')
-            h2
-              strong 43
-            p
-              small Snippets
-            .btn-group.dropup.btn-block
-              button.btn.btn-primary(type='button')
-                span.fa.fa-gear
-                | Options
-              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-                span.caret
-                span.sr-only Toggle Dropdown
-              ul.dropdown-menu.text-left(role='menu')
-                li
-                  a(href='#')
-                    span.fa.fa-envelope.pull-right
-                    | Send an email
-                li
-                  a(href='#')
-                    span.fa.fa-list.pull-right
-                    | Add or remove from a list
-                li.divider
-                li
-                  a(href='#')
-                    span.fa.fa-warning.pull-right
-                    | Report this user for spam
-                li.divider
-                li
-                  a.btn.disabled(href='#', role='button')  Unfollow
+            a.btn.btn-info.btn-block.sendEmail(href='mailto:' + email + '?Subject=Timbre:%20' + artist.email + '%20wants%20to%20jam!')
+              span.glyphicon.glyphicon-envelope(style='margin-right:5px')
+              span.emailAddress=email
+          //- .col-xs-12.col-sm-4.emphasis(style='padding:5px')
+          //-   h2
+          //-     strong 43
+          //-   p
+          //-     small Snippets
+          //-   .btn-group.dropup.btn-block
+          //-     button.btn.btn-primary(type='button')
+          //-       span.fa.fa-gear
+          //-       | Options
+          //-     button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          //-       span.caret
+          //-       span.sr-only Toggle Dropdown
+          //-     ul.dropdown-menu.text-left(role='menu')
+          //-       li
+          //-         a(href='#')
+          //-           span.fa.fa-envelope.pull-right
+          //-           | Send an email
+          //-       li
+          //-         a(href='#')
+          //-           span.fa.fa-list.pull-right
+          //-           | Add or remove from a list
+          //-       li.divider
+          //-       li
+          //-         a(href='#')
+          //-           span.fa.fa-warning.pull-right
+          //-           | Report this user for spam
+          //-       li.divider
+          //-       li
+          //-         a.btn.disabled(href='#', role='button')  Unfollow

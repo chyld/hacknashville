@@ -16,14 +16,19 @@
       $('#geolocate').click(geolocate);
       $('#geocode').click(geocode);
       $('#search').click(search);
-      $('#cards').on('click', '.text', text);
+      $('#cards').on('click', '.smsText', text);
+      $('#cards').on('click', '.sendEmail', email);
       displayMap(36,-95,3);
       displaySlider();
     }
   }
 
+  function email(){
+    
+  }
+
   function text(){
-    var number = $(this).text();
+    var number = $(this).find('.smsNumber').text();
     $.ajax({url:'/message/text', type:'POST', data:{number:number}, success:function(){}});
   }
 
