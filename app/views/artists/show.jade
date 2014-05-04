@@ -10,15 +10,7 @@ block content
       img.artistPhoto(src=artist.artistPhoto)
     else
       img.artistPhoto(src='/img/default.jpeg')
-    if owner
 
-      form(action='/artists/photo', method='post', enctype='multipart/form-data')
-        input(type='file' name='artistPhoto')
-        button Update Photo
-      form(action='/artists/song', method='post', enctype='multipart/form-data')
-        input(type='file' name='artistSong')
-        button Submit Song
-      a(href='/profile/edit') Edit Profile
 
       #underPhoto.col-md-12
         .container
@@ -55,50 +47,50 @@ block content
                           td
                             span.glyphicon.glyphicon-file.text-info
                             a(href='http://www.jquery2dotnet.com') MySpace
+                  if owner
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
+                            span.glyphicon.glyphicon-camera
+                            | Change Photo
+                      #collapseTwo.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                form(action='/artists/photo', method='post', enctype='multipart/form-data')
+                                  input(type='file' name='artistPhoto')
+                                  button Update Photo
 
-                .panel.panel-default
-                  .panel-heading
-                    h4.panel-title
-                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
-                        span.glyphicon.glyphicon-camera
-                        | Change Photo
-                  #collapseTwo.panel-collapse.collapse
-                    .panel-body
-                      table.table
-                        tr
-                          td
-                            form(action='/artists/photo', method='post', enctype='multipart/form-data')
-                              input(type='file' name='artistPhoto')
-                              button Update Photo
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
+                            span.glyphicon.glyphicon-music
+                            | Update Background Music
+                      #collapseThree.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                form(action='/artists/song', method='post', enctype='multipart/form-data')
+                                  input(type='file' name='artistSong')
+                                  button Submit Song
 
-                .panel.panel-default
-                  .panel-heading
-                    h4.panel-title
-                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
-                        span.glyphicon.glyphicon-music
-                        | Update Background Music
-                  #collapseThree.panel-collapse.collapse
-                    .panel-body
-                      table.table
-                        tr
-                          td
-                            form(action='/artists/song', method='post', enctype='multipart/form-data')
-                              input(type='file' name='artistSong')
-                              button Submit Song
-
-                .panel.panel-default
-                  .panel-heading
-                    h4.panel-title
-                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
-                        span.glyphicon.glyphicon-user
-                        | Edit Profile
-                  #collapseFour.panel-collapse.collapse
-                    .panel-body
-                      table.table
-                        tr
-                          td
-                            span.glyphicon.glyphicon-cog
-                            a(href='/profile/edit') Edit Profile
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
+                            span.glyphicon.glyphicon-user
+                            | Edit Profile
+                      #collapseFour.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                span.glyphicon.glyphicon-cog
+                                a(href='/profile/edit') Edit Profile
 
 
                 .panel.panel-default
@@ -154,7 +146,6 @@ block content
             span.pull-right
               i.glyphicon.glyphicon-minus
           .panel-body
-            | 
 
     .row
       .col-md-12
