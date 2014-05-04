@@ -6,7 +6,7 @@ exports.text = function(req, res){
 
   var client = require('twilio')(accountSid, authToken);
   var fromName = res.locals.artist.email;
-  var message = 'Timbre: ' + fromName + ' wants to contact you. Please login to Timbre to connect.'
+  var message = 'Timbre: ' + fromName + ' wants to contact you. Please login to Timbre to connect.';
 
   client.messages.create({
   	to: req.body.number,
