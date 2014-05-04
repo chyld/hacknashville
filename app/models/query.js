@@ -9,7 +9,7 @@ function Query(){
 Query.execute = function(query, fn){
   var lat = query.loc.lat * 1;
   var lng = query.loc.lng * 1;
-  var oneMile = 0.000012;
+  var oneMile = 0.000250;
   var maxdistance = query.distance * oneMile;
 
   artists.find({'skills':{$in:query.skills}, 'coordinates':{$nearSphere:[lat, lng],$maxDistance:maxdistance}}).toArray(function(err, records){

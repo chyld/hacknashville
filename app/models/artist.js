@@ -16,6 +16,7 @@ function Artist(artist){
   this.coordinates = [];
   this.skills = [];
   this.phone = '';
+  this.song = '';
 }
 
 Artist.prototype.hashPassword = function(fn){
@@ -103,6 +104,24 @@ Artist.prototype.addPhoto = function(oldpath){
   artists.save(this, function(err, record){
     console.log('saved!!!!!');
   });
+};
+
+Artist.prototype.addSong = function(oldpath){
+  console.log(oldpath);
+  var dirname = this.email.replace(/\W/g,'').toLowerCase();
+  var abspath = __dirname + '/../static';
+  var relpath = '/audios/artists/' + dirname;
+  fs.mkdirSync(abspath + relpath);
+  relpath += '/song';
+  fs.renameSync(oldpath, abspath + relpath);
+  this.artistSong = relpath;
+  artists.save(this, function(err, record){
+    console.log('saved!!!!!');
+  });
+};
+
+Artist.prototype.createBand = function(){
+
 };
 
 

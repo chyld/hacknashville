@@ -11,10 +11,15 @@ block content
       else
         img.artistPhoto(src='/img/default.jpeg')
       if owner
+
         form(action='/artists/photo', method='post', enctype='multipart/form-data')
           input(type='file' name='artistPhoto')
           button Update Photo
+        form(action='/artists/song', method='post', enctype='multipart/form-data')
+          input(type='file' name='artistSong')
+          button Submit Song
         a(href='/profile/edit') Edit Profile
+
   .row
     if artist.name
       .col-sm-2.text-center
@@ -33,13 +38,16 @@ block content
         h1 Bio
         h3= artist.bio
     if artist.skills
-    .col-sm-2.text-center
-      h1 Skills
-      each skill in artist.skills
-        h3= skill
+      .col-sm-2.text-center
+        h1 Skills
+        each skill in artist.skills
+          h3= skill
     if artist.phone
       .col-sm-2.text-center
         h1 Phone Number
         h3= artist.phone
 
+  .row
+    .col-sm-12.text-center
+      audio(src= artist.artistSong, controls=true)
 

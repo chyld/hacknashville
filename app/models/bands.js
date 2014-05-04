@@ -1,6 +1,6 @@
 'use strict';
 /*
-module.exports = Artist;
+module.exports = Band;
 var bands = global.nss.db.collection('bands');
 var Mongo = require('mongodb');
 var _ = require('lodash');

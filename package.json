@@ -33,7 +33,8 @@
     "vhost":           "*",
     "csurf":           "*",
     "formidable":      "*",
-    "escape-html":     "*"
+    "escape-html":     "*",
+    "twilio":          "*"
   },
   "devDependencies": {
     "grunt":                "*",

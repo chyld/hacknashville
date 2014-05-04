@@ -16,9 +16,15 @@
       $('#geolocate').click(geolocate);
       $('#geocode').click(geocode);
       $('#search').click(search);
+      $('#cards').on('click', '.text', text);
       displayMap(36,-95,3);
       displaySlider();
     }
+  }
+
+  function text(){
+    var number = $(this).text();
+    $.ajax({url:'/message/text', type:'POST', data:{number:number}, success:function(){}});
   }
 
   function search(e){
