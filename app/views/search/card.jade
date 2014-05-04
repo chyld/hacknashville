@@ -1,6 +1,6 @@
 .card
   .row
-    .col-md-offset-2.col-md-8.col-lg-offset-3.col-lg-6
+    .col-offset-2.col-md-10
       .well.profile
         .col-sm-12
           .col-xs-12.col-sm-8
@@ -49,12 +49,13 @@
           .col-xs-12.col-sm-4.emphasis
             h2
               strong Links
-            button.btn.button-highlight.soundCloud(style='margin:5px') soundCloud
-            button.btn.button-primary.cardProfile(style='margin:5px')
+            if soundCloud
+              button.btn.button-highlight.soundCloud(style='margin:5px') soundCloud
+            a.btn.button-primary.cardProfile(style='margin:5px', href='/artists/' + _id)
               span.glyphicon.glyphicon-user(style='margin-right:5px')
               span Profile
       .soundCloud-container
-        iframe(width='100%', height='300', scrolling='no', frameborder='no', src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/112743632&auto_play=false&hide_related=false&visual=true')
+        iframe(width='100%', height='300', scrolling='no', frameborder='no', src=soundCloud)
 
           //- .col-xs-12.col-sm-4.emphasis(style='padding:5px')
           //-   h2
