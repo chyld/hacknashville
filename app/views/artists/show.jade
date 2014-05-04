@@ -1,58 +1,177 @@
 extends ../shared/template
 
 block content
-  
+
   link(rel='stylesheet', href='/less/show.css')
+  link(rel='stylesheet', href='/less/panel.css')
 
-  .row
-    .col-sm-6
-      if artist.artistPhoto
-        img.artistPhoto(src=artist.artistPhoto)
-      else
-        img.artistPhoto(src='/img/default.jpeg')
-      if owner
+  #artistDiv.col-md-3
+    if artist.artistPhoto
+      img.artistPhoto(src=artist.artistPhoto)
+    else
+      img.artistPhoto(src='/img/default.jpeg')
 
-        form(action='/artists/photo', method='post', enctype='multipart/form-data')
-          input(type='file' name='artistPhoto')
-          button Update Photo
-        form(action='/artists/song', method='post', enctype='multipart/form-data')
-          input(type='file' name='artistSong')
-          button Submit Song
-        a(href='/profile/edit') Edit Profile
 
-  .row
-    if artist.name
-      .col-sm-2.text-center
-        h1 Name
-        h3= artist.name
-    if artist.email
-      .col-sm-2.text-center
-        h1 Email
-        h3= artist.email
-    if artist.address
-      .col-sm-2.text-center
-        h1 Location
-        h3= artist.address
-    if artist.bio
-      .col-sm-2.text-center
-        h1 Bio
-        h3= artist.bio
-    if artist.skills
-      .col-sm-2.text-center
-        h1 Skills
-        each skill in artist.skills
-          h3= skill
-    if artist.phone
-      .col-sm-2.text-center
-        h1 Phone Number
-        h3= artist.phone
+      #underPhoto.col-md-12
+        .container
+          .row
+            .col-sm-3.col-md-3
+              #accordion.panel-group
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+                        span.glyphicon.glyphicon-folder-close
+                        | Music Profile #{artist.name}
+                  #collapseOne.panel-collapse.collapse.in
+                    .panel-body
+                      table.table
+                        tr
+                          td
+                            span.glyphicon.glyphicon-comment.text-success
+                            a(href='http://www.jquery2dotnet.com') Messages
+                            span.badge 42
+                        tr
+                          td
+                            span.glyphicon.glyphicon-play.text-primary
+                            a(href= artist.youtube) YouTube
+                        tr
+                          td
+                            span.glyphicon.glyphicon-play.text-success
+                            a(href= artist.soundCloud) SoundCloud
+                        tr
+                          td
+                            span.glyphicon.glyphicon-pencil.text-primary
+                            a(href='http://www.facebook.com/') Facebook
+                        tr
+                          td
+                            span.glyphicon.glyphicon-file.text-info
+                            a(href='http://www.jquery2dotnet.com') MySpace
+                  if owner
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
+                            span.glyphicon.glyphicon-camera
+                            | Change Photo
+                      #collapseTwo.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                form(action='/artists/photo', method='post', enctype='multipart/form-data')
+                                  input(type='file' name='artistPhoto')
+                                  button Update Photo
+
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
+                            span.glyphicon.glyphicon-music
+                            | Update Background Music
+                      #collapseThree.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                form(action='/artists/song', method='post', enctype='multipart/form-data')
+                                  input(type='file' name='artistSong')
+                                  button Submit Song
+
+                    .panel.panel-default
+                      .panel-heading
+                        h4.panel-title
+                          a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour')
+                            span.glyphicon.glyphicon-user
+                            | Edit Profile
+                      #collapseFour.panel-collapse.collapse
+                        .panel-body
+                          table.table
+                            tr
+                              td
+                                span.glyphicon.glyphicon-cog
+                                a(href='/profile/edit') Edit Profile
+
+
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseFive')
+                        span.glyphicon.glyphicon-file
+                        | Manage Favorites
+                  #collapseFive.panel-collapse.collapse
+                    .panel-body
+                      table.table
+                        tr
+                          td
+                            span.glyphicon.glyphicon-globe
+                            a(href='http://www.jquery2dotnet.com') People
+                        tr
+                          td
+                            span.glyphicon.glyphicon-volume-up
+                            a(href='http://www.jquery2dotnet.com') Bands
+                        tr
+                          td
+                            span.glyphicon.glyphicon-play-circle
+                            a(href='http://www.jquery2dotnet.com') Venues
+                        tr
+                          td
+                            span.glyphicon.glyphicon-usd
+                            a(href='http://www.jquery2dotnet.com') Agents
+
+
+  .container.col-md-6
     .row
-      .col-sm-12.text-center
-        if artist.youtube
-          a(href= artist.youtube) My Youtube Link
-        if artist.soundCloud
-          a(href= artist.soundCloud) My Soundcloud Link
-        if artist.artistSong
-          h1 Song Demo
-          audio(src= artist.artistSong, controls=true)
+      .col-md-12
+        .panel.panel-primary
+          .panel-heading.clickable
+            h3.panel-title
+              | Contact Info
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | Name: #{artist.name}
+            br
+            | Email: #{artist.email}
+            br
+            | Phone Number: #{artist.phone}
+            br
+            | Location: #{artist.address}
 
+      .col-md-12
+        .panel.panel-success
+          .panel-heading.clickable
+            h3.panel-title
+              | Bands
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+
+    .row
+      .col-md-12
+        .panel.panel-warning
+          .panel-heading.clickable
+            h3.panel-title
+              | Skills
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          each skill in artist.skills
+            | #{skill},
+          .panel-body
+
+
+      .col-md-12
+        .panel.panel-info
+          .panel-heading.clickable
+            h3.panel-title
+              | Bio
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | #{artist.bio}
+
+
+        if artist.artistSong
+          audio(src= artist.artistSong, controls=true)
+  .col-md-3#lastThird
+    iframe(width='100%', height='450', scrolling='no', frameborder='no', src= artist.soundCloud)
