@@ -36,9 +36,10 @@
             p
               small send your email to:
                 span=email
-            button.btn.btn-success.smsText
-              span.glyphicon.glyphicon-comment(style='margin-right:5px')
-              span.smsNumber= phone
+            if phone
+              button.btn.btn-success.smsText
+                span.glyphicon.glyphicon-comment(style='margin-right:5px')
+                span.smsNumber= phone
           .col-xs-12.col-sm-4.emphasis
             h2
               strong Email
