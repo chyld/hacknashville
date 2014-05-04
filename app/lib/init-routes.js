@@ -21,8 +21,14 @@ function load(app, fn){
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
   app.post('/login', d, artists.login);
-  app.delete('/logout', d, artists.logout);
+  app.del('/logout', d, artists.logout);
   app.post('/facebook', d, artists.facebook);
+  app.post('/artists/photo', d, artists.addPhoto);
+  app.post('/artists/song', d, artists.addSong);
+  app.get('/artists/:id', d, artists.show);
+  app.get('/band/edit', d, artists.editBand);
+  app.get('/profile/edit', d, artists.edit);
+  app.post('/profile', d, artists.update);
   app.get('/search', d, search.show);
   app.get('/query', d, search.query);
   app.get('/query/card', d, search.card);

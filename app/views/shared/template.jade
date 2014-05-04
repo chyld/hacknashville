@@ -25,8 +25,9 @@ html(lang='en')
         ul.nav.navbar-nav
           li
             a(href='/search') Search
-          li
-            a Profile
+          if artist
+            li
+              a(href='/artists/'+artist._id) Profile
           li
             a(href='/chat') Chatting
         ul#navbar-right.nav.navbar-nav.navbar-right
@@ -54,3 +55,4 @@ html(lang='en')
     script(src='/js/source/authenticate.js')
     script(src='/js/source/sock.js')
     script(src='/js/source/main.js')
+    block scripts

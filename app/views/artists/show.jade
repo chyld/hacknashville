@@ -1,0 +1,58 @@
+extends ../shared/template
+
+block content
+  
+  link(rel='stylesheet', href='/less/show.css')
+
+  .row
+    .col-sm-6
+      if artist.artistPhoto
+        img.artistPhoto(src=artist.artistPhoto)
+      else
+        img.artistPhoto(src='/img/default.jpeg')
+      if owner
+
+        form(action='/artists/photo', method='post', enctype='multipart/form-data')
+          input(type='file' name='artistPhoto')
+          button Update Photo
+        form(action='/artists/song', method='post', enctype='multipart/form-data')
+          input(type='file' name='artistSong')
+          button Submit Song
+        a(href='/profile/edit') Edit Profile
+
+  .row
+    if artist.name
+      .col-sm-2.text-center
+        h1 Name
+        h3= artist.name
+    if artist.email
+      .col-sm-2.text-center
+        h1 Email
+        h3= artist.email
+    if artist.address
+      .col-sm-2.text-center
+        h1 Location
+        h3= artist.address
+    if artist.bio
+      .col-sm-2.text-center
+        h1 Bio
+        h3= artist.bio
+    if artist.skills
+      .col-sm-2.text-center
+        h1 Skills
+        each skill in artist.skills
+          h3= skill
+    if artist.phone
+      .col-sm-2.text-center
+        h1 Phone Number
+        h3= artist.phone
+    .row
+      .col-sm-12.text-center
+        if artist.youtube
+          a(href= artist.youtube) My Youtube Link
+        if artist.soundCloud
+          a(href= artist.soundCloud) My Soundcloud Link
+        if artist.artistSong
+          h1 Song Demo
+          audio(src= artist.artistSong, controls=true)
+

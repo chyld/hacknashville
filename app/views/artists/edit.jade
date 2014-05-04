@@ -1,0 +1,71 @@
+extends ../shared/template
+
+block content
+    link(rel='stylesheet', href='/less/edit.css')
+    h1 Edit your profile
+
+    form#artistInfo(method='POST', action='/profile')
+      legend Artist Info
+      .col-sm-4
+        .form-group
+          label Name
+          input.form-control(name='name', type='text', placeholder='Steven')
+        .form-group
+          label Email
+          input.form-control(name='email', type='email', placeholder='steven@nomail.com')
+        .form-group
+          label Address or Zipcode
+          input.form-control(name='address', type='text', placeholder='472 Evergreen Terrace')
+          input(type='hidden', name='lat')
+          input(type='hidden', name='lng')
+        button#update Submit
+      .col-sm-6
+        .form-group
+          label Cell Number
+          input.form-control(name='phone', type='text', placeholder='steven@nomail.com')
+        .form-group
+          label Youtube Video Link
+          input.form-control(name='youtube', type='text', placeholder='http://youtube.com/badassvideo')
+        .form-group
+          label Soundcloud Link
+          input.form-control(name='soundCloud', type='text', placeholder='http://soundcloud.com/awesomeness')
+        .form-group
+          label Bio
+          textarea.form-control(name='bio', rows='3', placeholder='Your life story here pls')
+        .form-group
+          legend Instruments/Skills
+          .col-sm-1
+            &nbsp;
+          .col-sm-10
+            label.check Drums
+            input(type='checkbox', name="skills[]", value='drums')
+            label.check Guitar
+            input(type='checkbox', name="skills[]", value='guitar')
+            label.check Bass
+            input(type='checkbox', name="skills[]", value='bass')
+            label.check Vocals
+            input(type='checkbox', name="skills[]", value='vocals')
+            label.check Piano
+            input(type='checkbox', name="skills[]", value='piano')
+            label.check Violin
+            input(type='checkbox', name="skills[]", value='violin')
+            label.check Cello
+            input(type='checkbox', name="skills[]", value='cello')
+            label.check Clarinet
+            input(type='checkbox', name="skills[]", value='clarinet')
+            label.check Cow Bell
+            input(type='checkbox', name="skills[]", value='cowbell')
+            label.check Sax
+            input(type='checkbox', name="skills[]", value='sax')
+            label.check Banjo
+            input(type='checkbox', name="skills[]", value='banjo')
+            label.check Mandolin
+            input(type='checkbox', name="skills[]", value='mandolin')
+            label.check Venue Manager
+            input(type='checkbox', name="skills[]", value='venueManager')
+            label.check Agent
+            input(type='checkbox', name="skills[]", value='agent')
+
+  block scripts
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ7f53mzZHfIF5Guqu3TrbhPNuaxsu6Fc&sensor=true')
+    script(src='/js/source/updateProfile.js')
