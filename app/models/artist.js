@@ -103,18 +103,14 @@ Artist.prototype.addPhoto = function(oldpath, fn){
   var dirname = this.email.replace(/\W/g,'').toLowerCase();
   var abspath = __dirname + '/../static';
   var relpath = '/img/artists/' + dirname;
-  var delpath = '/img/artists/';
+  rimraf.sync(abspath+relpath);
   fs.mkdirSync(abspath + relpath);
   relpath += '/photo';
-  console.log("HERE IT IS");
-  console.log(abspath+delpath);
-  rimraf(abspath+delpath,function(){
-    fs.renameSync(oldpath, abspath + relpath);
-    this.artistPhoto = relpath;
-    artists.save(this, function(err, record){
-      console.log('saved!!!!!');
-      fn();
-    });
+  fs.renameSync(oldpath, abspath + relpath);
+  this.artistPhoto = relpath;
+  artists.save(this, function(err, record){
+    console.log('saved!!!!!');
+    fn();
   });
 };
 
@@ -123,6 +119,7 @@ Artist.prototype.addSong = function(oldpath, fn){
   var dirname = this.email.replace(/\W/g,'').toLowerCase();
   var abspath = __dirname + '/../static';
   var relpath = '/audios/artists/' + dirname;
+  rimraf.sync(abspath+relpath);
   fs.mkdirSync(abspath + relpath);
   relpath += '/song';
   fs.renameSync(oldpath, abspath + relpath);
