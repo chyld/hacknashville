@@ -1,5 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 #chat{
   height: 100%;
+
+  #controls{
+    margin: 20px 0px 20px 0px;
+    border: 5px solid white;
+    background-color: white;
+
+    input{
+      width: 75%;
+    }
+
+    button{
+      width: 25%;
+    }
+  }
 
   table{
     width: 100%;
@@ -8,11 +24,31 @@
     border-radius: 10px;
 
     #messages{
+      font-family: 'Open Sans', sans-serif;
+      padding: 10px;
+      vertical-align: top;
       width: 75%;
       border: 1px solid white;
+
+      .message{
+        .sender{
+          font-weight: bold;
+          font-size: 11px;
+          color: red;
+        }
+
+        .msg{
+          padding-left: 10px;
+          font-size: 15px;
+          color: white;
+        }
+      }
     }
 
     #users{
+      font-family: 'Open Sans', sans-serif;
+      padding: 10px;
+      vertical-align: top;
       width: 25%;
 
       .user{

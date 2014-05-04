@@ -2,6 +2,9 @@ extends ../shared/template
 
 block content
   #chat
+    #controls
+      input#message(type='text', autofocus=true, placeholder='Enter message...')
+      button#send.button.glow.button-highlight Send Message
     table
       tbody
         tr
