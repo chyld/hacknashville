@@ -6,10 +6,10 @@ block content
   link(rel='stylesheet', href='/less/panel.css')
 
   #artistDiv.col-md-3
-    if artist.artistPhoto
-      img.artistPhoto(src=artist.artistPhoto)
-    else
-      img.artistPhoto(src='/img/default.jpeg')
+      if artist.artistPhoto
+        img.artistPhoto(src=artist.artistPhoto)
+      else
+        img.artistPhoto(src='/img/default.jpeg')
 
 
       #underPhoto.col-md-12
