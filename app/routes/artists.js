@@ -1,6 +1,7 @@
 'use strict';
 
 var Artist = require('../models/artist');
+//var Mongo = require('mongodb');
 
 exports.register = function(req, res){
   var artist = new Artist(req.body);
@@ -20,6 +21,7 @@ exports.login = function(req, res){
   Artist.findByEmailAndPassword(req.body.email, req.body.password, function(artist){
     if(artist){
       req.session.artistId = artist._id;
+      req.session.artistPw = artist.password;
       res.send({status:1});
     }else{
       res.send({status:0});
@@ -49,30 +51,27 @@ exports.show = function(req, res){
   });
 };
 
-exports.profile = function(req, res){
-  res.render('artists/profile');
-};
-
 exports.edit = function(req, res){
   res.render('artists/edit');
 };
 
 exports.submit = function(req, res){
-  res.send({artist:req.body});
+  Artist.findById(req.session.artistId, function(artist){
+    artist.name = req.body.name;
+    artist.address = req.body.address;
+    artist.coordinates = [req.body.lat * 1, req.body.lng * 1];
+    artist.bio = req.body.bio;
+    artist.update(function(){
+      res.redirect('/artists/' + req.session.artistId);
+    });
+  });
 };
 
-/*
-User.prototype.addPhoto = function(oldpath){
-  var dirname = this.email.replace(/\W/g,'').toLowerCase();
-  var abspath = __dirname + '/../static';
-  var relpath = '/img/artists/' + dirname;
-  fs.mkdirSync(abspath + relpath);
-
-  var extension = path.extname(oldpath);
-  relpath += '/photo' + extension;
-  fs.renameSync(oldpath, abspath + relpath);
-
-  this.userPhoto = relpath;
+exports.addPhoto = function(req, res){
+  Artist.findById(req.session.artistId, function(artist){
+    console.log(req.files);
+    artist.addPhoto(req.files.artistPhoto.path, function(){
+      res.redirect('/artists/' + req.session.artistId);
+    });
+  });
 };
-*/
-

@@ -23,7 +23,7 @@
       $('input[name="lng"]').val(lng);
       $('#artistInfo').submit();
     });
-    e.preventDefault();
+    e.preventDefaulti();
   }
 
 })();

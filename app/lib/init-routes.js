@@ -19,9 +19,9 @@ function load(app, fn){
   app.get('/', d, home.index);
   app.post('/register', d, artists.register);
   app.post('/login', d, artists.login);
-  app.delete('/logout', d, artists.logout);
+  app.del('/logout', d, artists.logout);
   app.post('/facebook', d, artists.facebook);
-  app.get('/profile', d, artists.profile);
+  app.post('/artists/photo', d, artists.addPhoto);
   app.get('/artists/:id', d, artists.show);
   app.get('/profile/edit', d, artists.edit);
   app.post('/profile/edit', d, artists.submit);

@@ -4,10 +4,16 @@ module.exports = Artist;
 var bcrypt = require('bcrypt');
 var artists = global.nss.db.collection('artists');
 var Mongo = require('mongodb');
-
+var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 function Artist(artist){
   this.email = artist.email;
   this.password = artist.password;
+  this.bio = '';
+  this.address = '';
+  this.artistPhoto = '';
+  this.coordinates = [];
 }
 
 Artist.prototype.hashPassword = function(fn){
@@ -53,7 +59,13 @@ Artist.findById = function(id, fn){
   var _id = Mongo.ObjectID(id);
 
   artists.findOne({_id:_id}, function(err, record){
-    fn(record);
+    fn(_.extend(record, Artist.prototype));
+  });
+};
+
+Artist.prototype.update = function(fn){
+  artists.save(this, function(err, record){
+    fn({record:record});
   });
 };
 
@@ -69,6 +81,19 @@ Artist.facebook = function(data, fn){
       fn(record);
     }
   });
+};
+
+Artist.prototype.addPhoto = function(oldpath){
+  var dirname = this.email.replace(/\W/g,'').toLowerCase();
+  var abspath = __dirname + '/../static';
+  var relpath = '/img/artists/' + dirname;
+  fs.mkdirSync(abspath + relpath);
+
+  var extension = path.extname(oldpath);
+  relpath += '/photo' + extension;
+  fs.renameSync(oldpath, abspath + relpath);
+
+  this.artistPhoto = relpath;
 };
 
 

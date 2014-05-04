@@ -1,3 +1,33 @@
-h1 This is the artist show jade
-if owner
-  p= artist.email
+extends ../shared/template
+
+block content
+  
+  link(rel='stylesheet', href='/less/show.css')
+
+  .row
+    .col-sm-6
+      if artist.artistPhoto
+        img.artistPhoto(src=artist.artistPhoto)
+      else
+        img.artistPhoto(src='/img/default.jpeg')
+      if owner
+        form(action='/artists/photo', method='post', enctype='multipart/form-data')
+          input(type='file' name='artistPhoto')
+          button Update Photo
+        a(href='/profile/edit') Edit Profile
+  .row
+    .col-sm-2.text-center
+      h1 Name
+      h3=artist.name
+    .col-sm-2.text-center
+      h1 Email
+      h3=artist.email
+    .col-sm-2.text-center
+      h1 Location
+      h3=artist.address
+    .col-sm-2.text-center
+      h1 Bio
+      h3=artist.bio
+
+        
+
