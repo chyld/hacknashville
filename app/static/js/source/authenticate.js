@@ -17,6 +17,7 @@
     $.ajax({url:'/login', type:'POST', data:data, success:function(artist){
       if(artist){
         $('#artist-email').text(artist.email);
+        window.location = '/artists' + artist._id;
         hideLogInElements();
       }
     }});

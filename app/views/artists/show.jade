@@ -6,10 +6,10 @@ block content
   link(rel='stylesheet', href='/less/panel.css')
 
   #artistDiv.col-md-3
-    if artist.artistPhoto
-      img.artistPhoto(src=artist.artistPhoto)
-    else
-      img.artistPhoto(src='/img/default.jpeg')
+      if artist.artistPhoto
+        img.artistPhoto(src=artist.artistPhoto)
+      else
+        img.artistPhoto(src='/img/default.jpeg')
 
 
       #underPhoto.col-md-12
@@ -158,7 +158,7 @@ block content
           .panel-body
             if artist.skills
               each skill in artist.skills
-                | #{skill}
+                | #{skill} 
       .col-md-12
         .panel.panel-info
           .panel-heading.clickable
@@ -173,4 +173,3 @@ block content
         if artist.artistSong
           audio(src= artist.artistSong, controls=true)
   .col-md-3#lastThird
-    iframe(width='100%', height='450', scrolling='no', frameborder='no', src= artist.soundCloud)
