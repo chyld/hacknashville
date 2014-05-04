@@ -6,6 +6,8 @@ var artists = global.nss.db.collection('artists');
 var Mongo = require('mongodb');
 var _ = require('lodash');
 var fs = require('fs');
+var rimraf = require('rimraf');
+
 function Artist(artist){
   this.name = '';
   this.email = artist.email;
@@ -77,6 +79,7 @@ Artist.prototype.update = function(data, fn){
   this.skills = data.skills;
   this.phone = data.phone;
   this.youtube = data.youtube;
+  this.soundCloud = data.soundCloud;
   artists.save(this, function(err, record){
     fn({record:record});
   });
@@ -100,13 +103,18 @@ Artist.prototype.addPhoto = function(oldpath, fn){
   var dirname = this.email.replace(/\W/g,'').toLowerCase();
   var abspath = __dirname + '/../static';
   var relpath = '/img/artists/' + dirname;
+  var delpath = '/img/artists/';
   fs.mkdirSync(abspath + relpath);
   relpath += '/photo';
-  fs.renameSync(oldpath, abspath + relpath);
-  this.artistPhoto = relpath;
-  artists.save(this, function(err, record){
-    console.log('saved!!!!!');
-    fn();
+  console.log("HERE IT IS");
+  console.log(abspath+delpath);
+  rimraf(abspath+delpath,function(){
+    fs.renameSync(oldpath, abspath + relpath);
+    this.artistPhoto = relpath;
+    artists.save(this, function(err, record){
+      console.log('saved!!!!!');
+      fn();
+    });
   });
 };
 

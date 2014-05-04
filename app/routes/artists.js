@@ -54,7 +54,9 @@ exports.show = function(req, res){
 };
 
 exports.edit = function(req, res){
-  res.render('artists/edit');
+  Artist.findById(req.session.artistId, function(artist){
+    res.render('artists/edit', {artist:artist});
+  });
 };
 
 exports.update = function(req, res){
