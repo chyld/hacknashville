@@ -33,7 +33,7 @@ html(lang='en')
         ul#navbar-right.nav.navbar-nav.navbar-right
           li
             a.navbar-brand#artist-email= artist ? artist.email : ''
-          li.fb-login-button.hidden
+          li.fb-login-button.hidden#fb
             fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
           li
             form#authentication

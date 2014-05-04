@@ -155,9 +155,10 @@ block content
               | Skills
             span.pull-right
               i.glyphicon.glyphicon-minus
-          each skill in artist.skills
-            | #{skill},
           .panel-body
+            if artist.skills
+              each skill in artist.skills
+                | #{skill} 
 
 
       .col-md-12
