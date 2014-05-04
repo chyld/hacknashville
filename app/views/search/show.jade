@@ -1,23 +1,41 @@
 extends ../shared/template
 
 block content
-  button#geolocate Find Me
-  h2 OR
-  input#zipcode(type='text')
-  button#geocode ZipCode
-  #range-slider
-  span#range-output
-  span Miles
-
-  form#skills
-    input(type='checkbox', name='guitar')
-    span Guitar
-    input(type='checkbox', name='drums')
-    span Drums
-    input(type='checkbox', name='bass')
-    span Bass
-    input(type='checkbox', name='vocals')
-    span Vocals
-    button#search Search
-
-  #map
+  #search-container
+    .container-fluid
+      .row
+        #left-col.col-md-6
+          .row
+            .col-md-12
+              .search-bar
+                h3 Step 1
+                  small Select a location to search from
+                button.search-controls.button.button-3d-highlight#geolocate Find Me!
+                input.search-controls#zipcode(type='text' placeholder='...or search by zipcode')
+                button.search-controls.button.button-3d-primary#geocode ZipCode
+          .row
+            .col-md-12
+              h3 Step 2
+                small  Set the range you would like to search
+              #range-slider-container
+                #range-slider
+                span#range-output
+                span   Miles
+          .row
+            .col-md-12(style='margin-bottom:15px')
+              h3 Step 3
+                small  Find other great artists and bands near you!
+              form#skills
+                input(type='checkbox', name='guitar')
+                span Guitar
+                input(type='checkbox', name='drums')
+                span Drums
+                input(type='checkbox', name='bass')
+                span Bass
+                input(type='checkbox', name='vocals')
+                span Vocals
+                button.button.button-3d-action#search Search
+          .row
+            .col-md-12
+              #map
+        #right-col.col-md-6
