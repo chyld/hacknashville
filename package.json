@@ -25,13 +25,14 @@
     "morgan":          "*",
     "cookie-parser":   "*",
     "express-session": "*",
-    "serve-favicon":  "*",
+    "serve-favicon":   "*",
     "response-time":   "*",
     "errorhandler":    "*",
     "method-override": "*",
     "connect-timeout": "*",
     "vhost":           "*",
     "csurf":           "*",
+    "formidable":      "*",
     "escape-html":     "*"
   },
   "devDependencies": {

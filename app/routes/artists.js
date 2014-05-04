@@ -1,6 +1,8 @@
 'use strict';
 
 var Artist = require('../models/artist');
+var formidable = require('formidable');
+var util = require('util');
 //var Mongo = require('mongodb');
 
 exports.register = function(req, res){
@@ -63,10 +65,16 @@ exports.update = function(req, res){
 };
 
 exports.addPhoto = function(req, res){
-  Artist.findById(req.session.artistId, function(artist){
-    console.log(req.files);
-    artist.addPhoto(req.files.artistPhoto.path, function(){
-      res.redirect('/artists/' + req.session.artistId);
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+      res.writeHead(200, {'content-type': 'text/plain'});
+      res.write('received upload:\n\n');
+      res.end(util.inspect({fields: fields, files: files}));
+      var photoPath = files.artistPhoto.path;
+      Artist.findById(req.session.artistId, function(artist){
+        artist.addPhoto(photoPath, function(){
+          res.redirect('/artists/' + req.session.artistId);
+        });
+      });
     });
-  });
 };

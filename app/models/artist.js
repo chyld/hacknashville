@@ -6,7 +6,6 @@ var artists = global.nss.db.collection('artists');
 var Mongo = require('mongodb');
 var _ = require('lodash');
 var fs = require('fs');
-var path = require('path');
 function Artist(artist){
   this.name = '';
   this.email = artist.email;
@@ -98,12 +97,12 @@ Artist.prototype.addPhoto = function(oldpath){
   var abspath = __dirname + '/../static';
   var relpath = '/img/artists/' + dirname;
   fs.mkdirSync(abspath + relpath);
-
-  var extension = path.extname(oldpath);
-  relpath += '/photo' + extension;
+  relpath += '/photo';
   fs.renameSync(oldpath, abspath + relpath);
-
   this.artistPhoto = relpath;
+  artists.save(this, function(err, record){
+    console.log('saved!!!!!');
+  });
 };
 
 
