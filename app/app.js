@@ -37,4 +37,8 @@ server.listen(port, function(){
   console.log('Node server listening. Port: ' + port + ', Database: ' + dbname);
 });
 
+var sockets = require('./lib/sockets');
+var io = require('socket.io').listen(server, {log:true, 'log level':2});
+io.of('/app').on('connection', sockets.connection);
+
 module.exports = app;

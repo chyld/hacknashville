@@ -9,10 +9,15 @@ html(lang='en')
     link(href='/css/jquery.nouislider.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
+    link(href='/less/chat.css', rel='stylesheet')
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/source/fblogin.js')
     link(href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css')
+    link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/card.css', rel='stylesheet')
+
   body
+    #fb-root
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
         .navbar-header
@@ -20,19 +25,22 @@ html(lang='en')
         ul.nav.navbar-nav
           li
             a(href='/search') Search
+          if artist
+            li
+              a(href='/artists/'+artist._id) Profile
           li
-            a Profile
+            a(href='/chat') Chatting
         ul#navbar-right.nav.navbar-nav.navbar-right
           li
             a.navbar-brand#artist-email= artist ? artist.email : ''
-          li.fb-login-button
+          li.fb-login-button.hidden
             fb:login-button(scope="public_profile,email" onlogin="checkLoginState();")
           li
             form#authentication
-              input#email(type='text', name='email', placeholder='Email')
-              input#password(type='password', name='password', placeholder='Password')
-              button.button.button-action#register Register
-              button.button.button-primary#login Login
+              input.hidden#email(type='text', name='email', placeholder='Email')
+              input.hidden#password(type='password', name='password', placeholder='Password')
+              button.button.button-action.hidden#register Register
+              button.button.button-primary.hidden#login Login
               button.button.button-caution.hidden#logout Logout
     #moveDownContent
     block content
@@ -45,6 +53,8 @@ html(lang='en')
     script(src='/js/source/maps.js')
     script(src='/js/vendor/panel.js')
     script(src='/js/vendor/buttons.js')
+    script(src='/socket.io/socket.io.js')
     script(src='/js/source/authenticate.js')
+    script(src='/js/source/sock.js')
     script(src='/js/source/main.js')
     block scripts

@@ -25,14 +25,17 @@
     "morgan":          "*",
     "cookie-parser":   "*",
     "express-session": "*",
-    "serve-favicon":  "*",
+    "serve-favicon":   "*",
     "response-time":   "*",
     "errorhandler":    "*",
     "method-override": "*",
     "connect-timeout": "*",
     "vhost":           "*",
     "csurf":           "*",
-    "escape-html":     "*"
+    "formidable":      "*",
+    "escape-html":     "*",
+    "twilio":          "*",
+    "socket.io":       "*"
   },
   "devDependencies": {
     "grunt":                "*",

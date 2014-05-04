@@ -1,17 +1,19 @@
 'use strict';
 
 var Artist = require('../models/artist');
-//var Mongo = require('mongodb');
+var formidable = require('formidable');
 
 exports.register = function(req, res){
   var artist = new Artist(req.body);
   artist.hashPassword(function(){
     artist.insert(function(){
+      console.log('---artist---');
+      console.log(artist);
+      debugger;
+
       if(artist._id){
         req.session.artistId = artist._id;
-        res.send({status:1});
-      }else{
-        res.send({status:0});
+        res.send(artist);
       }
     });
   });
@@ -21,12 +23,11 @@ exports.login = function(req, res){
   Artist.findByEmailAndPassword(req.body.email, req.body.password, function(artist){
     if(artist){
       req.session.artistId = artist._id;
+      req.session.artistPw = artist.password;
       res.send({status:1});
     }else{
       res.send({status:0});
     }
-
-    res.send(artist);
   });
 };
 
@@ -56,23 +57,45 @@ exports.edit = function(req, res){
   res.render('artists/edit');
 };
 
-exports.submit = function(req, res){
-  Artist.findById(req.session.artistId, function(artist){
-    artist.name = req.body.name;
-    artist.address = req.body.address;
-    artist.coordinates = [req.body.lat * 1, req.body.lng * 1];
-    artist.bio = req.body.bio;
-    artist.update(function(){
+exports.update = function(req, res){
+  console.log(req.body);
+  Artist.findById(req.session.artistId ,function(artist){
+    artist.update(req.body, function(){
       res.redirect('/artists/' + req.session.artistId);
     });
   });
 };
 
 exports.addPhoto = function(req, res){
-  Artist.findById(req.session.artistId, function(artist){
-    console.log(req.files);
-    artist.addPhoto(req.files.artistPhoto.path, function(){
-      res.redirect('/artists/' + req.session.artistId);
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+      // res.writeHead(200, {'content-type': 'text/plain'});
+      // res.write('received upload:\n\n');
+      // res.end(util.inspect({fields: fields, files: files}));
+      var photoPath = files.artistPhoto.path;
+      Artist.findById(req.session.artistId, function(artist){
+        artist.addPhoto(photoPath, function(){
+          res.redirect('/artists/' + req.session.artistId);
+        });
+      });
     });
-  });
+};
+
+exports.addSong = function(req, res){
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+      //res.writeHead(200, {'content-type': 'text/plain'});
+      //res.write('received upload:\n\n');
+      //res.end(util.inspect({fields: fields, files: files}));
+      var songPath = files.artistSong.path;
+      Artist.findById(req.session.artistId, function(artist){
+        artist.addSong(songPath, function(){
+          res.redirect('/artists/' + req.session.artistId);
+        });
+      });
+    });
+};
+
+exports.editBand = function(req, res){
+  res.render('bands/editBand');
 };
