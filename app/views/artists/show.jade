@@ -1,11 +1,12 @@
 extends ../shared/template
 
 block content
-  
-  link(rel='stylesheet', href='/less/show.css')
 
-  .row
-    .col-sm-6
+  link(rel='stylesheet', href='/less/show.css')
+  link(rel='stylesheet', href='/less/panel.css')
+
+  #artistDiv.col-md-3
+    .artistPhoto
       if artist.artistPhoto
         img.artistPhoto(src=artist.artistPhoto)
       else
@@ -15,19 +16,54 @@ block content
           input(type='file' name='artistPhoto')
           button Update Photo
         a(href='/profile/edit') Edit Profile
-  .row
-    .col-sm-2.text-center
-      h1 Name
-      h3=artist.name
-    .col-sm-2.text-center
-      h1 Email
-      h3=artist.email
-    .col-sm-2.text-center
-      h1 Location
-      h3=artist.address
-    .col-sm-2.text-center
-      h1 Bio
-      h3=artist.bio
 
-        
 
+
+  .container.col-md-9
+    .row
+      .col-md-6
+        .panel.panel-primary
+          .panel-heading.clickable
+            h3.panel-title
+              | Contact Info
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | Name:
+            br
+            | Email:
+            br
+            | Location:
+
+            a(href='http://www.jquery2dotnet.com/2014/01/static-social-button-with-animation.html')
+      .col-md-6
+        .panel.panel-success
+          .panel-heading.clickable
+            h3.panel-title
+              | Another Category
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | some more stuff
+            a(href='http://www.jquery2dotnet.com/2013/11/cool-big-social-counter-button-with.html')
+    .row
+      .col-md-6
+        .panel.panel-warning
+          .panel-heading.clickable
+            h3.panel-title
+              | Skills
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | Piano, Guitar, Rusty Trombone
+            a(href='http://www.jquery2dotnet.com/2013/11/vote-up-and-down-script-using-bootstrap.html')
+      .col-md-6
+        .panel.panel-info
+          .panel-heading.clickable
+            h3.panel-title
+              | Bio
+            span.pull-right
+              i.glyphicon.glyphicon-minus
+          .panel-body
+            | Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal. Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we can not dedicate -- we can not consecrate -- we can not hallow -- this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.
+            a(href='http://www.jquery2dotnet.com/2013/11/image-preview-on-hover-bootstrap.html')
