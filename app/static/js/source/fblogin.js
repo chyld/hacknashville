@@ -22,7 +22,8 @@ window.fbAsyncInit = function() {
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.0' // use version 2.0
+    version    : 'v2.0', // use version 2.0
+    status     : true //cache login status
   });
 
   FB.getLoginStatus(function(response) {
@@ -45,12 +46,12 @@ function authenticate() {
   FB.api('/me', function(response) {
     $.ajax({url:'/facebook', type:'POST', data:response, success:function(artist){
       document.getElementById('artist-email').innerHTML = artist.email;
-      $('#logout').toggleClass('hidden');
-      $('#login').toggleClass('hidden');
-      $('#email').toggleClass('hidden');
-      $('#password').toggleClass('hidden');
-      $('#register').toggleClass('hidden');
-      $('.fb-login-button').toggleClass('hidden');
+      $('#logout').removeClass('hidden');
+      $('#login').addClass('hidden');
+      $('#email').addClass('hidden');
+      $('#password').addClass('hidden');
+      $('#register').addClass('hidden');
+      $('.fb-login-button').addClass('hidden');
     }});
   });
 }
