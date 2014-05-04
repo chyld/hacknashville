@@ -16,24 +16,30 @@ block content
           button Update Photo
         a(href='/profile/edit') Edit Profile
   .row
-    .col-sm-2.text-center
-      h1 Name
-      h3= artist.name
-    .col-sm-2.text-center
-      h1 Email
-      h3= artist.email
-    .col-sm-2.text-center
-      h1 Location
-      h3= artist.address
-    .col-sm-2.text-center
-      h1 Bio
-      h3= artist.bio
+    if artist.name
+      .col-sm-2.text-center
+        h1 Name
+        h3= artist.name
+    if artist.email
+      .col-sm-2.text-center
+        h1 Email
+        h3= artist.email
+    if artist.address
+      .col-sm-2.text-center
+        h1 Location
+        h3= artist.address
+    if artist.bio
+      .col-sm-2.text-center
+        h1 Bio
+        h3= artist.bio
+    if artist.skills
     .col-sm-2.text-center
       h1 Skills
       each skill in artist.skills
         h3= skill
-    .col-sm-2.text-center
-      h1 Phone Number
-      h3= artist.phone
+    if artist.phone
+      .col-sm-2.text-center
+        h1 Phone Number
+        h3= artist.phone
 
 
