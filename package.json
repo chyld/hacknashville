@@ -35,6 +35,7 @@
     "formidable":      "*",
     "escape-html":     "*",
     "twilio":          "*",
+    "rimraf":          "*",
     "socket.io":       "*"
   },
   "devDependencies": {
