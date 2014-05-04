@@ -18,16 +18,22 @@ block content
   .row
     .col-sm-2.text-center
       h1 Name
-      h3=artist.name
+      h3= artist.name
     .col-sm-2.text-center
       h1 Email
-      h3=artist.email
+      h3= artist.email
     .col-sm-2.text-center
       h1 Location
-      h3=artist.address
+      h3= artist.address
     .col-sm-2.text-center
       h1 Bio
-      h3=artist.bio
+      h3= artist.bio
+    .col-sm-2.text-center
+      h1 Skills
+      each skill in artist.skills
+        h3= skill
+    .col-sm-2.text-center
+      h1 Phone Number
+      h3= artist.phone
 
-        
 

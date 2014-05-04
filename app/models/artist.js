@@ -8,12 +8,15 @@ var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
 function Artist(artist){
+  this.name = '';
   this.email = artist.email;
   this.password = artist.password;
   this.bio = '';
   this.address = '';
   this.artistPhoto = '';
   this.coordinates = [];
+  this.skills = [];
+  this.phone = '';
 }
 
 Artist.prototype.hashPassword = function(fn){
@@ -64,11 +67,16 @@ Artist.findById = function(id, fn){
 };
 
 Artist.prototype.update = function(data, fn){
-  /*
-  artists.update(this, function(err, record){
+  this.name = data.name;
+  this.bio = data.bio;
+  this.coordinates = [data.lat*1, data.lng*1];
+  this.bio = data.bio;
+  this.address = data.address;
+  this.skills = data.skills;
+  this.phone = data.phone;
+  artists.save(this, function(err, record){
     fn({record:record});
   });
-  */
 };
 
 Artist.facebook = function(data, fn){
